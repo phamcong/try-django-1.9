@@ -4,23 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
+    <title>Detail Page</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   </head>
   <body>
-    <h1>{{ title }} is working!</h1>
-    {% for obj in object_list %}
-      <!-- <a href="/posts/{{ obj.id }}">{{ obj.title }}</a> </br> -->
-      <!-- <a href="{% url "posts:detail" id=obj.id %}">{{ obj.title }}</a> </br> use this if we set a name for detail url in posts/urls.py. We dont have hard code the url address -->
-      <a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a> </br> <!-- </br> import reverse module -->
-      {{ obj.content }} </br>
-      {{ obj.updated }} </br>
-      {{ obj.timestamp }} </br>
-      {{ obj.id }} </br>
-      {{ obj.pk }} </br>
-      <hr></hr>
-    {% endfor %}
+    <h1>Form</h1>
+    <form method="POST", action="/posts/create/"> {% csrf_token %} <!-- go through csrf error -->
+      {{ form.as_p }}
+      <input type="submit" value="Create Post"/>
+    </form>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
   </body>

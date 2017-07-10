@@ -19,5 +19,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('^posts/', include("posts.urls", namespace="posts")), # use namespace if two app share a same url name
+    url(r'^posts/', include("posts.urls", namespace="posts")), # use namespace if two apps share a same url name
 ]

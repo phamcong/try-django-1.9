@@ -11,7 +11,9 @@
   <body>
     <h1>{{ title }} is working!</h1>
     {% for obj in object_list %}
-      {{ obj.title }} </br>
+      <!-- <a href="/posts/{{ obj.id }}">{{ obj.title }}</a> </br> -->
+      <!-- <a href="{% url "detail" id=obj.id %}">{{ obj.title }}</a> </br> use this if we set a name for detail url in posts/urls.py. We dont have hard code the url address -->
+      <a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a> <!-- </br> import reverse module -->
       {{ obj.content }} </br>
       {{ obj.updated }} </br>
       {{ obj.timestamp }} </br>

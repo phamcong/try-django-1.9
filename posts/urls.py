@@ -1,4 +1,5 @@
 from django.conf.urls import url
+
 from .views import (
     post_list,
     post_create,
@@ -9,7 +10,7 @@ from .views import (
 urlpatterns = [
     url(r'^$', post_list),
     url(r'^create/$', post_create),
-    url(r'^detail/(?P<id>\d+)/$', post_detail),
+    url(r'^(?P<id>\d+)/$', post_detail, name="posts.detail"), # add name for link
     url(r'^update/$', post_update),
     url(r'^delete/$', post_delete),
 ]
